@@ -1,0 +1,19 @@
+{
+  "name": "wyn-link-chrome-extension",
+  "version": "1.0.0",
+  "description": "WYN Link Chrome Extension for remote desktop hosting",
+  "main": "background.js",
+  "scripts": {
+    "build": "webpack --mode=production",
+    "dev": "webpack --mode=development --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["remote-desktop", "screen-sharing", "chrome-extension"],
+  "author": "Hope Ukpai <hope@wyntech.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
+    "copy-webpack-plugin": "^11.0.0"
+  }
+}

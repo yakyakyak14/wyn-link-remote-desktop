@@ -1,0 +1,37 @@
+{
+  "name": "wyn-link-remote-desktop",
+  "version": "1.0.0",
+  "description": "WYN Link - Remote Desktop Application for cross-platform remote control",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:web\" \"npm run dev:extension\"",
+    "dev:web": "cd web-app && npm run dev",
+    "dev:extension": "cd chrome-extension && npm run dev",
+    "dev:mobile": "cd mobile-app && npm run start",
+    "dev:pc": "cd pc-client && npm run dev",
+    "build": "npm run build:web && npm run build:extension && npm run build:mobile && npm run build:pc",
+    "build:web": "cd web-app && npm run build",
+    "build:extension": "cd chrome-extension && npm run build",
+    "build:mobile": "cd mobile-app && npm run build",
+    "build:pc": "cd pc-client && npm run build",
+    "install:all": "npm install && cd web-app && npm install && cd ../chrome-extension && npm install && cd ../mobile-app && npm install && cd ../pc-client && npm install",
+    "test": "jest",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+  },
+  "keywords": [
+    "remote-desktop",
+    "webrtc",
+    "cross-platform",
+    "react-native",
+    "electron",
+    "chrome-extension"
+  ],
+  "author": "Hope Ukpai <hope@wyntech.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "eslint": "^8.57.0",
+    "jest": "^29.7.0",
+    "typescript": "^5.3.3"
+  }
+}

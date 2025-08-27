@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WYN Link - Remote Desktop Host</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">WYN</div>
+                    <h1>WYN Link</h1>
+                </div>
+                <div class="header-actions">
+                    <button id="minimize-btn" class="header-btn" title="Minimize">−</button>
+                    <button id="close-btn" class="header-btn" title="Close">×</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Welcome Screen -->
+            <div id="welcome-screen" class="screen active">
+                <div class="welcome-content">
+                    <div class="welcome-header">
+                        <h2>Share Your Desktop</h2>
+                        <p>Allow others to remotely access and control your computer securely</p>
+                    </div>
+
+                    <div class="session-form">
+                        <div class="form-group">
+                            <label for="access-level">Access Level</label>
+                            <select id="access-level" class="form-control">
+                                <option value="full">Full Access - Complete control of desktop</option>
+                                <option value="partial">Partial Access - Limited to specific apps/files</option>
+                            </select>
+                        </div>
+
+                        <div id="partial-access-options" class="partial-options" style="display: none;">
+                            <div class="form-group">
+                                <label>Allowed Applications</label>
+                                <div class="app-list" id="app-list">
+                                    <!-- Apps will be populated here -->
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Allowed Folders</label>
+                                <div class="folder-list" id="folder-list">
+                                    <button type="button" class="add-folder-btn" id="add-folder-btn">
+                                        + Add Folder
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button id="start-session-btn" class="btn btn-primary">
+                            Start Sharing Session
+                        </button>
+                    </div>
+
+                    <div class="info-cards">
+                        <div class="info-card">
+                            <div class="info-icon">🔒</div>
+                            <h3>Secure Connection</h3>
+                            <p>All sessions are encrypted end-to-end with unique 4-digit PINs</p>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-icon">⏱️</div>
+                            <h3>One-Time Links</h3>
+                            <p>Session codes expire automatically for enhanced security</p>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-icon">👥</div>
+                            <h3>Full Control</h3>
+                            <p>You can end the session at any time and see who's connected</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Session Active Screen -->
+            <div id="session-screen" class="screen">
+                <div class="session-content">
+                    <div class="session-header">
+                        <div class="session-status">
+                            <div class="status-indicator active"></div>
+                            <span>Session Active</span>
+                        </div>
+                        <div class="session-duration" id="session-duration">00:00:00</div>
+                    </div>
+
+                    <div class="session-info">
+                        <div class="session-card">
+                            <h3>Session Details</h3>
+                            <div class="session-details">
+                                <div class="detail-item">
+                                    <label>Session Code:</label>
+                                    <div class="session-code" id="session-code">--------</div>
+                                </div>
+                                <div class="detail-item">
+                                    <label>PIN:</label>
+                                    <div class="session-pin" id="session-pin">----</div>
+                                </div>
+                                <div class="detail-item">
+                                    <label>Access Level:</label>
+                                    <div class="access-level" id="current-access-level">Full Access</div>
+                                </div>
+                            </div>
+                            <button id="copy-details-btn" class="btn btn-secondary">
+                                Copy Session Details
+                            </button>
+                        </div>
+
+                        <div class="participants-card">
+                            <h3>Connected Users</h3>
+                            <div class="participants-list" id="participants-list">
+                                <div class="no-participants">No users connected yet</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="session-actions">
+                        <button id="end-session-btn" class="btn btn-danger">
+                            End Session
+                        </button>
+                        <button id="pause-session-btn" class="btn btn-secondary">
+                            Pause Session
+                        </button>
+                    </div>
+
+                    <div class="session-warning">
+                        <div class="warning-icon">⚠️</div>
+                        <div class="warning-content">
+                            <strong>Security Notice:</strong>
+                            <p>Your desktop is being shared. Only share with people you trust. You can end this session at any time.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loading Screen -->
+            <div id="loading-screen" class="screen">
+                <div class="loading-content">
+                    <div class="loading-spinner"></div>
+                    <h3>Starting Session...</h3>
+                    <p>Please wait while we set up your remote desktop session</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p>WYN Link v1.0.0 - Developed by Hope Ukpai, WYN Tech, Abuja, Nigeria</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

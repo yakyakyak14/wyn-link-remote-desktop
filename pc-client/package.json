@@ -1,0 +1,79 @@
+{
+  "name": "wyn-link-pc-client",
+  "version": "1.0.0",
+  "description": "WYN Link PC Client for Remote Desktop Hosting",
+  "main": "src/main.js",
+  "homepage": "https://wynlink.com",
+  "author": {
+    "name": "Hope Ukpai",
+    "email": "hope@wyntech.com",
+    "url": "https://wyntech.com"
+  },
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev",
+    "build": "electron-builder",
+    "build:win": "electron-builder --win",
+    "build:mac": "electron-builder --mac",
+    "build:linux": "electron-builder --linux",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder --publish=never",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wyntech/wyn-link.git"
+  },
+  "build": {
+    "appId": "com.wyntech.wynlink",
+    "productName": "WYN Link",
+    "directories": {
+      "output": "dist"
+    },
+    "publish": null,
+    "files": [
+      "src/**/*",
+      "assets/**/*",
+      "node_modules/**/*"
+    ],
+    "win": {
+      "target": "nsis",
+      "publisherName": "WYN Tech",
+      "verifyUpdateCodeSignature": false
+    },
+    "mac": {
+      "target": "dmg",
+      "category": "public.app-category.productivity"
+    },
+    "linux": {
+      "target": "AppImage",
+      "category": "Network"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  },
+  "dependencies": {
+    "electron-store": "^8.1.0",
+    "socket.io-client": "^4.7.4",
+    "simple-peer": "^9.11.1",
+    "@supabase/supabase-js": "^2.38.4",
+    "node-fetch": "^3.3.2",
+    "ws": "^8.14.2"
+  },
+  "devDependencies": {
+    "electron": "^27.0.0",
+    "electron-builder": "^24.6.4",
+    "electron-devtools-installer": "^3.2.0"
+  },
+  "keywords": [
+    "remote-desktop",
+    "electron",
+    "desktop-sharing",
+    "remote-control"
+  ],
+  "license": "MIT"
+}
